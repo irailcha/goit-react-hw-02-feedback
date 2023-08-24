@@ -1,27 +1,40 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import './Statistics.styled';
+import {StatContainerStyle, CounterListStyle, CounterStyle, StatTitleStyle} from './Statistics.styled'
 
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
     
-  <ul className='statistic-container'>
+  <StatContainerStyle className='statistic-container'>
  
-<h2 className="statistic-title">Statistic</h2>
-<li>
-  <span className='counter-good'>  Good : {good}</span></li>
-<li>
-  <span className='counter-neutral'> Neutral : {neutral}</span></li>
-<li>
-  <span className='counter-bad'> Bad : {bad}</span></li>
-<li>
-  <span className='counter-total'>Total : {total}</span>
-</li>
-<li>
-  <span className='counter-feedback-percentage'>Positive feedback : {positivePercentage}%</span>
-</li>
-</ul>
+<StatTitleStyle className="statistic-title">Statistic</StatTitleStyle>
+<CounterListStyle>
+  Good : <CounterStyle className='counter-good'>{good}</CounterStyle></CounterListStyle>
+<CounterListStyle>
+   Neutral : <CounterStyle className='counter-neutral'>{neutral}</CounterStyle></CounterListStyle>
+<CounterListStyle>
+   Bad : <CounterStyle className='counter-bad'>{bad}</CounterStyle></CounterListStyle>
+<CounterListStyle>
+  Total : <CounterStyle className='counter-total'>{total}</CounterStyle>
+</CounterListStyle>
+<CounterListStyle>
+  Positive feedback : <CounterStyle className='counter-feedback-percentage'>{positivePercentage}%</CounterStyle>
+</CounterListStyle>
+</StatContainerStyle>
 
 );
+
+
+Statistics.propTypes = {
+  
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
+ };
+  
 
 export default Statistics;
 

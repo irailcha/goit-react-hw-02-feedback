@@ -1,12 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import './Section.styled';
 
-
+import {SectionStyle, TitleStyle} from './Section.styled'
 
 const Section = ({ title, children }) => (
-  <div className='section'>
-    <h1 className='section-title'>{title}</h1>
+  <SectionStyle className='section'>
+    <TitleStyle className='section-title'>{title}</TitleStyle>
     {children}
-  </div>
+  </SectionStyle>
 );
+
+Section.propTypes = {
+  
+  title: PropTypes.string.isRequired,
+
+
+};
+
 
 export default Section;
